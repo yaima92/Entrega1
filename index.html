@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="307412725123-2n1i79cgmqvkkv8r7k0dchk3o1rhjmce.apps.googleusercontent.com">
+    <meta name="description" content="">
+    <title>Login eMercado</title>
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/login.js"></script>
+  </head>
+
+  <body>
+<div class="container-all">
+  <div class="ctn-form">
+    <img src="" alt="" class="logo">
+    <h1 class="title">Iniciar Sesión</h1>
+<form action="">
+  <label for="">Usuario</label>
+  <input type="text" id="usuario">
+  <label for="">Contraseña</label>
+  <input type="password" id="pass">
+  <input onclick=login() type="button" value="Iniciar"><br>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <a href="#" onclick="signOut();">Sign out</a>
+</form>
+
+<script>
+  function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+  var id_token = googleUser.getAuthResponse().id_token;
+        console.log(id_token);
+        location.href = "cover.html";
+  }
+        function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+<span class="text-footer">¿Aún no te has registrado?<a href="#">Registrate</a></span>
+  </div>
+  <div class="ctn-text">
+    <div class="capa"></div>
+      <h1 class="title-description">e-MERCADO</h1>
+      <p class="text-description">tu e-commerce favorito</p>
+  </div>
+</div>
+  </body>
+</html>
