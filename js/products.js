@@ -1,7 +1,7 @@
 const ORDER_ASC_BY_COST = "A-Z";
 const ORDER_DESC_BY_COST = "Z-A";
 const ORDER_BY_PROD_COUNT = "Cant.";
-const search = document.getElementById("search");
+//const search = document.getElementById("search");
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCost = undefined;
@@ -47,7 +47,7 @@ function showProductsList(){
             ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))){
 
             htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">

@@ -23,16 +23,85 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div style="color: white; font-weight: bold;">
+        Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span><br>
+          <button onclick="localStorage.clear(); 
+          alert('Usuario desconectado'); 
+          location.href='index.html';">Cerrar Sesión</button>
+          <script>
+          var usuario =localStorage.getItem("usuario");
+          document.getElementById('usuario').innerHTML=usuario;
+          </script>
+          </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+          seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+      </div>
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Cantidad de productos en la categoría</dt>
+        <dd>
+          <p id="soldCount"></p>
+        </dd>
+
+        <dt>Criterio para incluir productos en esta categoría</dt>
+        <dd>
+          <p id="category"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+
+        <dt>Productos Relacionados</dt>
+        <hr>
+        <dd>
+          <div id="relatedProducts">
+          </div>
+        </dd>
+
+        <dt>Comentarios</dt>
+        <hr>
+        <dd>
+          <div id="comentarios">
+            <span id="user"></span><span id="dateTime"></span><span id="score"></span><br>
+        <span id="description"></span><br>
+          </div>
+        </dd>
+
+        <dt>Agregar Nuevo</dt>
+        <hr>
+        <dt style="color: gray">Agregar Nuevo</dt>
+        <div class="questions__input-wrapper" style="position: relative; width: 800px; margin-top: 17px">
+          <textarea id="comment" class="questions__input " name="question" type="text" placeholder="Escriba un comentario..." title="Escribe una pregunta" maxlength="2000" rows="5" cols="50" ></textarea>
   </div>
+        <dt>Puntuación</dt>
+        <select style="width: 8%;">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select><br>
+        <input type="button" value="Enviar" onclick="enviar();" style="color: white; background-color: #2196F3 ; margin-top: 3%;">
+      </dl>
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+    </div>
+  </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -54,6 +123,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/comentarios.js"></script>
+  <script src="js/login-google.js"></script>
 </body>
 
 </html>
