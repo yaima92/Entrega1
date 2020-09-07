@@ -24,24 +24,45 @@ function showImagesGallery(array){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
-        if (resultObj.status === "ok")
-        {
+        if (resultObj.status === "ok"){
             product = resultObj.data;
 
             let productNameHTML  = document.getElementById("productName");
+            let productCostHTML = document.getElementById("productCost");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productsoldCountHTML = document.getElementById("soldCount");
             let productCategoryHTML = document.getElementById("category");
-            let relatedProducts = document.getElementById("relatedProducts");
-        
+
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productsoldCountHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
-            relatedProducts.innerHTML = product.relatedProducts;
-
+            productCostHTML.innerHTML = product.cost;
+             
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
-        }
-    });
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){ 
+            let products = resultObj.data;
+
+            let html = "";
+                product.relatedProducts.forEach(function(productIndex) {
+                let productIterator = products[productIndex];
+                html += `
+                <div class="card" style= "width: 18rem;">
+                    <img src="${productIterator.imgSrc}" class="card-img-top" alt="">
+                    <div class= "card-body">
+                        <h5 class="card-title">${productIterator.name}</h5>
+                        <p class="card-text">${productIterator.description}</p>
+                        <a href="" class="btn btn-link">Ver</a>
+                    </div>
+                </div>
+                `
+                document.getElementById("relatedProducts").innerHTML = html;
+                });
+            }
+        });
+    }
+});
 });
