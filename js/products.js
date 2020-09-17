@@ -1,7 +1,6 @@
 const ORDER_ASC_BY_COST = "A-Z";
 const ORDER_DESC_BY_COST = "Z-A";
 const ORDER_BY_PROD_COUNT = "Cant.";
-//const search = document.getElementById("search");
 var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCost = undefined;

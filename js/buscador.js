@@ -1,5 +1,5 @@
+//Herramienta Buscador
 const productsList = document.getElementById('cat-list-container');
-//const search = document.getElementById('search');
 let hpProducts =[];
 console.log(search);
 

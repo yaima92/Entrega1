@@ -2,6 +2,7 @@ var commentArray = [];
 
 document.getElementById("spinner-wrapper").style.display = "block";
 
+//Muestro los comentarios
 function showCommentList(array){
            
     let htmlContentToAppend = "";
@@ -35,6 +36,7 @@ function showCommentList(array){
     }
 }
 
+//Funcion para enviar comentario nuevo
 function enviar(){
     var comentario = [];
     var nombreusuario = document.getElementById("usercoment").value;
@@ -64,6 +66,7 @@ function enviar(){
     mostrar(commentArray);
 }
 
+//Función Mostrar Comentario Nuevo
 function mostrar(commentArray){
     let commentlist= "";
 

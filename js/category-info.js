@@ -1,5 +1,6 @@
 var category = {};
 
+//Muestro las imágenes del json. Category-info.js
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";

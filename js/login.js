@@ -1,3 +1,4 @@
+//Funcion para Iniciar Sesión
 function login(usuario){
    var usuario = document.getElementById("usuario").value;
    var contrasena = document.getElementById("pass").value;
