@@ -76,6 +76,19 @@
         margin-bottom: 20px;
       }
     }
+    tfoot {
+      font-weight: bold;
+      background: lightblue;
+      color: darkblue;
+    }
+    .moneda{
+      font-weight: bolder;
+      color:darkgreen;
+    }
+    #cargando{
+      display: none;
+    }
+
     </style>
 </head>
 
@@ -91,7 +104,7 @@
           Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span></a> 
         <div style="background-color: hotpink;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="my-profile.html">Perfil de Usuario</a>
-          <a class="dropdown-item" href="cart.html">Carrito de Compras <span class="badge badge-pill badge-info">0</span></a>
+          <a class="dropdown-item" href="cart.html" id="compra">Carrito de Compras <span class="badge badge-pill badge-info" id="cont">0</span></a>
           <a style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
           alert('Usuario desconectado'); 
           location.href='index.html';">Cerrar Sesión</button></a>
@@ -116,17 +129,29 @@
         <div class="container">
             <div class="row mt-3">
                 <div class="col">
-                    <form id="procesar pago" action="#">
+                    <form id="procesar pago" class="needs-validation" action="#">
                         <div class="form-group row">
-                            <label for="cliente" class="col-12 col-md-2 col-form-label h2">Cliente :</label>
+                            <label for="cliente" class="col-12 col-md-2 col-form-label h2"><strong> Cliente :</strong></label>
                             <div class="col-12 col-md-10">
                                 <input type="text" class="form-control" id="cliente" placeholder="Ingresa nombre cliente" required>
+                                <div class="invalid-feedback">
+                                  No es valido!
+                                </div>
+                                <div class="valid-feedback">
+                                  Correcto!
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-12 col-md-2 col-form-label h2">Correo :</label>
+                            <label for="email" class="col-12 col-md-2 col-form-label h2"><strong> Correo :</strong></label>
                             <div class="col-12 col-md-10">
                                 <input type="email" class="form-control" id="correo" placeholder="Ingresa tu correo" required>
+                                <div class="invalid-feedback">
+                                  No es valido!
+                                </div>
+                                <div class="valid-feedback">
+                                  Correcto!
+                                </div>
                         </div>
                         </div>
                         <div id="cart" class="table-responsive">
@@ -142,7 +167,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="articulos">
-                                  
+                                  <div id="vacio"></div><br>
                                 </tbody>
                             </table>
                         </div>
@@ -176,17 +201,17 @@
                 <ul class="list-group mb-3">
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                       <div>
-                        <h6 class="my-0" id="subtotal">Subtotal</h6>
+                        <h6 class="my-0">Subtotal</h6>
                         <small class="text-muted">Costo unitario del producto por cantidad</small>
                       </div>
-                      <span class="text-muted" id="productCostText">-</span>
+                      <span id="subtotal" class="moneda">-</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                       <div>
                         <h6 class="my-0">Costo de envio</h6>
                         <small class="text-muted">Según el tipo de envio</small>
                       </div>
-                      <span class="text-muted" id="comissionText">-</span>
+                      <span id="envio" class="moneda">-</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                       <div>
@@ -201,24 +226,28 @@
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                       <span>Total ($)</span>
-                      <strong id="totalCostText">-</strong>
+                      <strong id="total" class="moneda">-</strong>
                     </li>
                   </ul>
 
                 <hr class="mb-4">
                 <h4 class="mb-3">Forma de Pago</h4>
-                <div class="row"> Transferencia Bancaria: <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#Modal">Seleccionar</button>
+                <div class="row"> 
+                  Transferencia Bancaria: <button type="submit" id="pago" class="m-1 btn btn-link" data-toggle="modal" data-target="#Modal">Seleccionar</button>
                 </div>
-
-
 
                 <hr class="mb-4">
                 <div class="row justify-content-between">
                   <div class="col-md-4 mb-2">
                       <a href="cart.html" class="btn btn-info btn-block">Seguir comprando</a>
                   </div>
+
+                  <div class="row justify-content-center" id="loaders">
+                    <img id="cargando" src="img/cargando.gif" width="220">
+                  </div>
+
                   <div class="col-xs-12 col-md-4">
-                    <a href="" class="btn btn-success btn-block" id="procesar-compra">Finalizar compra</a>
+                    <button class="btn btn-success btn-block" type="button" id="procesar-compra">Finalizar compra</button>
                 </div>
               </div>
               </form>
@@ -340,6 +369,7 @@
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/login-google.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>
