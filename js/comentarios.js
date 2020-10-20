@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             commentArray = resultObj.data;
-            //Muestro las categorías ordenadas
+            //Muestro los comentarios ordenados
             showCommentList(commentArray);
         }
     });
