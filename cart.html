@@ -15,6 +15,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
   <style>
     .col-50 {
       -ms-flex: 50%; /* IE10 */
@@ -104,7 +105,7 @@
           Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span></a> 
         <div style="background-color: hotpink;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="my-profile.html">Perfil de Usuario</a>
-          <a class="dropdown-item" href="cart.html" id="compra">Carrito de Compras <span class="badge badge-pill badge-info" id="cont">0</span></a>
+          <a class="dropdown-item" href="cart.html" id="compra">Carrito de Compras <span class="badge badge-pill badge-danger" id="cont">0</span></a>
           <a style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
           alert('Usuario desconectado'); 
           location.href='index.html';">Cerrar Sesión</button></a>
@@ -322,20 +323,50 @@
                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                           </div>
                           <label for="cname">Name on Card</label>
-                          <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                          <input type="text" id="cname" class="form-control" name="cardname" placeholder="John More Doe">
                           <label for="ccnum">Credit card number</label>
-                          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                          <div class="invalid-feedback">
+                            No es valido!
+                          </div>
+                          <div class="valid-feedback">
+                            Correcto!
+                          </div>
+                          <input type="text" id="ccnum" class="form-control" name="cardnumber" placeholder="1111-2222-3333-4444">
                           <label for="expmonth">Exp Month</label>
-                          <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                          <div class="invalid-feedback">
+                            No es valido!
+                          </div>
+                          <div class="valid-feedback">
+                            Correcto!
+                          </div>
+                          <input type="text" id="expmonth" class="form-control" name="expmonth" placeholder="September">
+                          <div class="invalid-feedback">
+                            No es valido!
+                          </div>
+                          <div class="valid-feedback">
+                            Correcto!
+                          </div>
               
                           <div class="row">
                             <div class="col-50">
                               <label for="expyear">Exp Year</label>
-                              <input type="text" id="expyear" name="expyear" placeholder="2018">
+                              <input type="text" id="expyear" class="form-control" name="expyear" placeholder="2018">
+                              <div class="invalid-feedback">
+                                No es valido!
+                              </div>
+                              <div class="valid-feedback">
+                                Correcto!
+                              </div>
                             </div>
                             <div class="col-50">
                               <label for="cvv">CVV</label>
-                              <input type="text" id="cvv" name="cvv" placeholder="352">
+                              <input type="text" id="cvv" class="form-control" name="cvv" placeholder="352">
+                              <div class="invalid-feedback">
+                                No es valido!
+                              </div>
+                              <div class="valid-feedback">
+                                Correcto!
+                              </div>
                             </div>
                           </div>
                         </div>

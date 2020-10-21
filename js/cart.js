@@ -59,10 +59,10 @@ function showArticlesList(cartList){
 
     //Función borrar 
     function articles(i){ 
-        cartList.articles.splice(i, 1);
-        showArticlesList(cartList);
-   calcular();
-    }
+        cartList.articles.splice(i, 1)
+            showArticlesList(cartList);
+            calcular();
+   }
 
     const cliente = document.getElementById('cliente');
     const correo = document.getElementById('correo');
@@ -82,7 +82,7 @@ function showArticlesList(cartList){
                 window.location = 'cart.html';
             })
         }
-        else if(cliente.value === '' || correo.value === ''){
+        else if(cliente.value === '' || correo.value === '' || cname.value === '' || ccnum.value === '' || expmonth.value === '' || expyear.value === '' || cvv.value === ''){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -94,12 +94,32 @@ function showArticlesList(cartList){
           correo.classList.remove('is-valid');
           cliente.classList.add('is-invalid');
           cliente.classList.remove('is-valid');
+          cname.classList.add('is-invalid');
+          cname.classList.remove('is-valid');
+          ccnum.classList.add('is-invalid');
+          ccnum.classList.remove('is-valid');
+          expmonth.classList.add('is-invalid');
+          expmonth.classList.remove('is-valid');
+          expyear.classList.add('is-invalid');
+          expyear.classList.remove('is-valid');
+          cvv.classList.add('is-invalid');
+          cvv.classList.remove('is-valid');
     }else{
 
         correo.classList.remove('is-invalid');
           correo.classList.add('is-valid');
           cliente.classList.remove('is-invalid');
          cliente.classList.add('is-valid');
+         cname.classList.remove('is-invalid');
+         cname.classList.add('is-valid');
+         ccnum.classList.remove('is-invalid');
+         ccnum.classList.add('is-valid');
+         expmonth.classList.remove('is-invalid');
+         expmonth.classList.add('is-valid');
+         expyear.classList.remove('is-invalid');
+         expyear.classList.add('is-valid');
+        cvv.classList.remove('is-invalid');
+        cvv.classList.add('is-valid');
 
         const cargandoGif = document.querySelector('#cargando');
         cargandoGif.style.display = 'block';
@@ -119,21 +139,6 @@ function showArticlesList(cartList){
         }, 3000);
     }
 }
-
-/*const botonComprobar = document.getElementsByClassName('btn btn-success btn-block')
-        botonComprobar.addEventListener('click', validar);
-      
-      function validar() {
-        const correo = document.getElementById('correo');
-
-        if(correo.value === ""){
-          correo.classList.add('is-invalid');
-          correo.classList.remove('is-valid');
-        }else{
-          correo.classList.remove('is-invalid');
-          correo.classList.add('is-valid');
-        }
-      }*/
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
