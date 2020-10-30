@@ -12,7 +12,7 @@ function showArticlesList(cartList){
 
             htmlContentToAppend += `
             <tr>
-             <td scope="col">
+             <td scope="col-lg-12">
              <img width=100 src="${cartArticles.src}" class="img-thumbnail">
              </td>
              <td stcope="col"><strong> `+ cartArticles.name +`</strong></td>

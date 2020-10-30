@@ -1,7 +1,6 @@
 //Herramienta Buscador
 const productsList = document.getElementById('cat-list-container');
 let hpProducts =[];
-console.log(search);
 
 search.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
@@ -18,7 +17,6 @@ const loadProducts = async () => {
         const res = await fetch('https://japdevdep.github.io/ecommerce-api/product/all.json');
         hpProducts = await res.json();
         displayProducts(hpProducts);
-        console.log(hpProducts);
     }catch (err){
         console.error(err);
     }

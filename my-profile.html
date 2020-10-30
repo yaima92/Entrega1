@@ -4,68 +4,110 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+  <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
+  <style>
+    .cont {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 50px;
+    
+    }
+
+    .btn a {
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      line-height: 18px;
+    }
+
+    .ctn-form{
+    width: 100%;
+    padding: 100px;
+    background: rgb(248, 245, 245);
+    background-image: url("img/usuario.jpg");
+    background-position: center;
+    background-size: cover;
+    padding: 40px;
+    position: relative;
+}
+  </style>
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
+  <nav class="site-header sticky-top py-1 bg-dark" role="navigation">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <span class="py-2 d-md-inline-block" style="color: white; font-weight: bold;" id="saludo"></span>
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+
       <div class="dropdown show">
-        <a style="background-color: hotpink; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span></a> 
+        <a style="background-color: hotpink; border: none;" class="btn btn-secondary dropdown-toggle" href="#"
+          role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span></a>
         <div style="background-color: hotpink;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="my-profile.html">Perfil de Usuario</a>
           <a class="dropdown-item" href="cart.html">Carrito de Compras</a>
           <a style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
-          alert('Usuario desconectado'); 
-          location.href='index.html';">Cerrar Sesión</button></a>
+            alert('Usuario desconectado'); 
+            location.href='index.html';">Cerrar Sesión</button></a>
         </div>
       </div>
-          <script>
-          var usuario =localStorage.getItem("usuario");
-          document.getElementById('usuario').innerHTML=usuario;
-          </script>
-          </div>
+
+      <script>
+        var usuario = localStorage.getItem("usuario");
+        document.getElementById('usuario').innerHTML = usuario;
+      </script>
+    </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+
+  <div class="cont">
+    <form class="ctn-form">
+    <h2> Perfil de Usuario </h2><br>
+      <div class="form-group">
+        <label>Fecha de Nacimiento:*</label>
+        <input type="date" class="form-control"  style="width:300px" id="fecha"> 
+      </div>
+      <div class="form-group">
+        <label>Nombre:*</label>
+        <input type="text" class="form-control"  style="width:300px" id="nombre">
+      </div>
+      <div class="form-group">
+        <label>Segundo Nombre:</label>
+        <input type="text" class="form-control"  style="width:300px" id="snombre">
+      </div>
+      <div class="form-group">
+        <label>Primer apellido:*</label>
+        <input type="text" class="form-control"  style="width:300px" id="papellido">
+      </div>
+      <div class="form-group">
+        <label>Segundo apellido:</label>
+        <input type="text" class="form-control"  style="width:300px" id="sapellido">
+      </div>
+      <div class="form-group">
+        <label for="phone">Teléfono de contacto:* </label> &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="tel" class="form-control"  style="width:300px"name="telf" placeholder="(Area code) Number" id="phone">
+      </div>
+      <div class="form-group">
+        <label for="email">Correo Electrónico:*</label>
+        <input type="email" class="form-control"  style="width:300px" id="email">
+      </div>
+</form>
+<button class="btn btn-primary" onclick="guardar();">Guardar</button>
+  <div id="list"></div><br>
   </div>
+  
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
@@ -86,12 +128,54 @@
       <div></div>
     </div>
   </div>
+  <script>
+    var list = [];
+    function guardar() {
+      var personas = {}; //defino el objeto
+      var nom = document.getElementById('nombre').value;//obtengo los valores
+      var snom = document.getElementById('snombre').value;
+      var papellido = document.getElementById('papellido').value;
+      var sapellido = document.getElementById('sapellido').value;
+      var phone = document.getElementById('phone').value;
+      var nac = document.getElementById('fecha').value;
+      var mail = document.getElementById('email').value;
+
+      personas.nombre = nom;//guardo los valores
+      personas.snombre = snom;
+      personas.papellido = papellido;
+      personas.sapellido = sapellido;
+      personas.phone = phone;
+      personas.fecha = nac;
+      personas.email = mail;
+
+
+      list.push(personas); //agrego los valores al final de la colección
+      localStorage.setItem("list", JSON.stringify(list)); //Guardo la lista en localStorage
+
+      Swal.fire({
+        title: 'Desea guardar los cambios?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: `Guardar`,
+        denyButtonText: `No Guardar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Su perfil a sido actualizado', '', 'success');
+        } else if (result.isDenied) {
+          Swal.fire('Sus cambios no han sido guardados', '', 'info')
+        }
+      })
+    }
+
+
+  </script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
   <script src="js/login-google.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>
