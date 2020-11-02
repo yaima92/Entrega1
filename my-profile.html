@@ -43,64 +43,74 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark" role="navigation">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <span class="py-2 d-md-inline-block" style="color: white; font-weight: bold;" id="saludo"></span>
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-
-      <div class="dropdown show">
-        <a style="background-color: hotpink; border: none;" class="btn btn-secondary dropdown-toggle" href="#"
-          role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span></a>
-        <div style="background-color: hotpink;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="my-profile.html">Perfil de Usuario</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-commerse</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item container d-flex flex-column flex-md-row justify-content-between">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link" href="categories.html">Categorías</a>
+          <a class="nav-link" href="products.html">Productos</a>
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a style="background-color: hotpink; border: none;" class="nav-link dropdown-toggle btn btn-secondary" href="#" id="dropdownMenuLink" role="button" 
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="perfil.html">Perfil de Usuario</a>
           <a class="dropdown-item" href="cart.html">Carrito de Compras</a>
-          <a style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
-            alert('Usuario desconectado'); 
-            location.href='index.html';">Cerrar Sesión</button></a>
-        </div>
-      </div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
+              alert('Usuario desconectado'); 
+              location.href='index.html';">Cerrar Sesión</button></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
       <script>
         var usuario = localStorage.getItem("usuario");
         document.getElementById('usuario').innerHTML = usuario;
       </script>
-    </div>
-    </div>
-  </nav>
 
   <div class="cont">
-    <form class="ctn-form">
+    <form class="col-lg-12 ctn-form">
     <h2> Perfil de Usuario </h2><br>
       <div class="form-group">
-        <label>Fecha de Nacimiento:*</label>
+        <label class="col-sm-4 control-label">Fecha de Nacimiento:*</label>
         <input type="date" class="form-control"  style="width:300px" id="fecha"> 
       </div>
       <div class="form-group">
-        <label>Nombre:*</label>
+        <label class="col-sm-2 control-label">Nombre:*</label>
         <input type="text" class="form-control"  style="width:300px" id="nombre">
       </div>
       <div class="form-group">
-        <label>Segundo Nombre:</label>
+        <label class="col-sm-4 control-label">Segundo Nombre:</label>
         <input type="text" class="form-control"  style="width:300px" id="snombre">
       </div>
       <div class="form-group">
-        <label>Primer apellido:*</label>
+        <label class="col-sm-2 control-label">Primer apellido:*</label>
         <input type="text" class="form-control"  style="width:300px" id="papellido">
       </div>
       <div class="form-group">
-        <label>Segundo apellido:</label>
+        <label class="col-sm-4 control-label">Segundo apellido:</label>
         <input type="text" class="form-control"  style="width:300px" id="sapellido">
       </div>
       <div class="form-group">
-        <label for="phone">Teléfono de contacto:* </label> &nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="col-sm-4 control-label" for="phone">Teléfono de contacto:* </label> &nbsp;&nbsp;&nbsp;&nbsp;
         <input type="tel" class="form-control"  style="width:300px"name="telf" placeholder="(Area code) Number" id="phone">
       </div>
       <div class="form-group">
-        <label for="email">Correo Electrónico:*</label>
+        <label class="col-sm-4 control-label" for="email">Correo Electrónico:*</label>
         <input type="email" class="form-control"  style="width:300px" id="email">
       </div>
 </form>
@@ -165,6 +175,7 @@
         } else if (result.isDenied) {
           Swal.fire('Sus cambios no han sido guardados', '', 'info')
         }
+        window.location = "perfil.html";
       })
     }
 

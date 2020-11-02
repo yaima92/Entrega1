@@ -1,17 +1,17 @@
 var contenido = JSON.parse(localStorage.getItem("list"));//Obtengo datos de localStorage.
-var list = "";
-var cantidad = 0;
-if (contenido != null && contenido.length > 0) {
-    cantidad = contenido.length;
-    contenido.forEach(producto => {
-        list += "<li>" + producto.nombre + " -- $ " + producto.phone + "</li>";
-    });
-} else {
-    list += "<div class='alert alert-warning'> El carrito está vacío </div>";
-
-}
-document.getElementsByClassName('nombre').innerHTML = list;
-document.getElementsByClassName('phone').innerHTML = cantidad;
+    var list = "";
+    var cantidad = 0;
+    if (contenido != null && contenido.length > 0) {
+      cantidad = contenido.length;
+      contenido.forEach(producto => {
+        list += `<div class="nombre"><strong>Nombre:</strong> `+ producto.nombre +` `+ producto.snombre +` `+ producto.papellido +` `+ producto.sapellido +`</div>
+        <div><strong>Fecha de nacimiento:</strong> `+ producto.fecha +`</div>
+        <div><strong>Correo Electrónico:</strong> `+ producto.email +`</div>
+        <div><strong>Teléfono:</strong> `+ producto.phone +`</div>
+        `
+      });
+    }
+    document.getElementById('info').innerHTML = list;
 
 
 

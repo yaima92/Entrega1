@@ -94,30 +94,44 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown show">
-        <a style="background-color: hotpink; border: none;" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span></a> 
-        <div style="background-color: hotpink;" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="my-profile.html">Perfil de Usuario</a>
-          <a class="dropdown-item" href="cart.html" id="compra">Carrito de Compras <span class="badge badge-pill badge-danger" id="cont">0</span></a>
-          <a style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
-          alert('Usuario desconectado'); 
-          location.href='index.html';">Cerrar Sesión</button></a>
-        </div>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-commerse</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item container d-flex flex-column flex-md-row justify-content-between">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link" href="categories.html">Categorías</a>
+          <a class="nav-link" href="products.html">Productos</a>
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a style="background-color: hotpink; border: none;" class="nav-link dropdown-toggle btn btn-secondary" href="#" id="dropdownMenuLink" role="button" 
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Bienvenido/a: <span style="color: white; font-weight: bold;" id="usuario"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="perfil.html">Perfil de Usuario</a>
+          <a class="dropdown-item" href="cart.html">Carrito de Compras</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" style="padding:19px;"><button style="border: none; background-color: hotpink;" onclick="localStorage.clear(); 
+              alert('Usuario desconectado'); 
+              location.href='index.html';">Cerrar Sesión</button></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
           <script>
           var usuario =localStorage.getItem("usuario");
           document.getElementById('usuario').innerHTML=usuario;
           </script>
-          </div>
-    </div>
-  </nav>
+          
   <main role="main">
     <div class="container mt-5">
       <div class="text-center p-4">
